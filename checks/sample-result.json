@@ -1,0 +1,35 @@
+{
+  "status": "VERIFIED_GAP_PROOF_PACKAGE",
+  "package_sha256": "c0278543ef569f48417a8d30cb68a60db3a2eb3566e3b4d2438ac34d742b06bc",
+  "root_sha256": "6a0fca46b41319a496f95d9f6abd362340c4f275aaf73c92b12a186110453ec0",
+  "root_position": {
+    "black": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        -1
+      ]
+    ],
+    "white": [
+      [
+        -1,
+        -1
+      ],
+      [
+        4,
+        -6
+      ]
+    ],
+    "to_move": "black"
+  },
+  "max_total_plies": 35,
+  "scope": "positional",
+  "objects": 3696,
+  "ordinary_files": 3682,
+  "bundle_files": 14,
+  "ordinary_nodes": 191787,
+  "seconds": 53.38999999999942
+}

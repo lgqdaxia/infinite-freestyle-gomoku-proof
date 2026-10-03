@@ -1,0 +1,77 @@
+Response to the independent review — local major-revision draft
+4 October 2026
+
+The English and Chinese manuscripts have been revised together. This reply
+distinguishes completed editorial/mathematical changes from pending artifact
+acceptance requirements. The published version 1 and the accepted mathematical
+checker sources have not been changed. This revision has not been published.
+
+1. Mathematical framework.
+   The insertion coverage, universal Black-outcome obligation, opening symmetry
+   cover, and actual-placement clock are retained. In particular, the virtual
+   occupancy argument and the treatment of unrecorded intermediate states in
+   Lemmas 6.2 and 6.5 have not been shortened away.
+
+2. Complete review package — partly implemented; acceptance requirement pending.
+   Section 10 specifies the complete selected dependency closure, frozen
+   eight-source checker, byte manifest, runtime record, copyable entry command,
+   expected final status, and failure conditions. Review tools freeze the
+   checker and derive package-internal references while preserving the original
+   accepted material. Derived material remains a candidate until a new full
+   mathematical and byte check succeeds.
+   A fresh positional package check in a separate directory on the same Windows
+   host succeeded. This is neither an OS-isolated environment nor the complete
+   empty-board corpus. Full-corpus byte/rule inventory is running. Complete
+   package delivery, actual full storage requirements, code/data redistribution
+   notices, and a full replay with no original-workspace access remain pending.
+   No sample or historical receipt is substituted for that replay. Private
+   reviewer delivery is acceptable; an artifact DOI is not a prerequisite.
+
+3. Mathematical rule / program / certificate correspondence — partly completed.
+   Appendix E lists all 17 accepted ordinary-node labels, mathematical results,
+   checker entries, premises and actual-move clocks. Modular Black/White headers
+   are identified separately. Theorem 6.7 and Theorem 6.8 are explicit rows.
+   Usage is defined as root-reachable ordinary-node occurrences, summed over
+   the 20 opening roots, rather than stored unreachable nodes or execution paths.
+   The full selected-corpus census is still running; pending entries mean
+   unknown, not zero. In particular, final use counts for 6.7 and 6.8 have not
+   been established by the samples or by the new illustrative certificate.
+
+4. Remote-interruption auditability — completed in the manuscript.
+   Appendix F gives a complete small certificate with two active remote
+   components, explicit points and gain/defense sets, local defense and
+   counterfour handling, remote counterfours, quick finish, and an ordered
+   strategy dispatcher. Both checkers reconstruct the complete conditions.
+   It has 28 local recorded states and five states in each remote graph:
+   L = 13, N1 = N2 = 1, hence at most 17 further actual placements, or 35
+   including the 18 already placed. Complete state lists and a legal illustrative
+   continuation are supplied separately; the path does not replace all-branch
+   checking or contribute new opening coverage.
+
+5. Completion-point lifting — completed.
+   New Lemma 5.2 proves uniform emptiness and completion, independence of the
+   supporting witness/reference, distinctness even across different rigid
+   components, and inclusion of every actual immediate winning point, for both
+   colors. The double-completion proof now invokes this lemma explicitly.
+
+6. Related work — corrected.
+   The introduction now reports both Allis et al.'s 35-ply principal variation
+   and Table 5's solution-tree depth 35. It distinguishes their finite-board
+   scope and threat compression from this paper's infinite-board bound on all
+   actual placements. The limitation on applying the Infinite Hex locality
+   result is retained.
+
+7. Presentation and length — completed.
+   The reviewer command is a literal one-line verbatim string, also delivered
+   in verify-command.txt; PDF text extraction preserves both ASCII hyphens.
+   Historical failures/cache qualifications are concentrated in Appendix D.
+   Contributions/tool disclosure follows the already authorized public-v1
+   disclosure and no longer awaits approval. Per-opening timing diagnostics
+   move to opening-run-statistics.csv; the aggregate table and mathematical
+   opening coverage remain in the manuscript. English remains 25 pages and
+   Chinese 22 pages, with unchanged body font and margins.
+
+The draft therefore addresses the mathematical and presentation requests,
+but does not claim that items 2 and the usage-count portion of item 3 have
+been satisfied. Submission as a fully completed major revision should wait
+for the complete package, census and isolated full replay.

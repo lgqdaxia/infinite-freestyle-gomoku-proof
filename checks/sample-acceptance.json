@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED_RELOCATED_POSITIONAL_SAMPLE",
+  "scope": "positional_only_not_empty_board",
+  "before": {
+    "files": 12,
+    "payload_bytes": 4976573
+  },
+  "after": {
+    "files": 12,
+    "payload_bytes": 4976573
+  },
+  "seconds": 53.54699999999866,
+  "command": "python -B verify-review.py --sample --workers 1 --output-dir fresh-check",
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "executed_on_same_host_as_original_workspace": true,
+  "no_external_full_corpus_replay_claim": true,
+  "worker_limit": 1,
+  "priority_class": "BelowNormal",
+  "actual_exit_code": 0,
+  "result_sha256": "a343edea774e4677756b657fd33323f58128c27a7a0ae07836f0b970d623448a",
+  "raw_acceptance_sha256": "856b5ccaf40a1b877554b527018ed7f955123f9acd81d9ed8afa4ad73259ef44"
+}
