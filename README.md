@@ -1,86 +1,101 @@
-# Infinite freestyle Gomoku — manuscripts and verification sample
+# Infinite freestyle Gomoku — complete review materials
 
-**This directory does not contain the complete empty-board certificate.** It
-contains frozen independent checkers, manuscripts, one self-contained
-positional sample, and a small worked illustration. A positional sample is not
-additional opening coverage and cannot establish the empty-board theorem.
+**Author:** Gaoqiang Liu, University of Bayreuth, Germany.  
+**Contact:** Gaoqiang.Liu@uni-bayreuth.de
 
-## Manuscripts and current review status
+The certificate establishes a Black win from the empty infinite integer board
+within **35 actual placements by both players**. The rules allow overlines
+and have no forbidden moves. Twenty opening representatives cover all 120
+normalized first replies; every subsequent White response is checked.
 
-- [Public English preprint v1](papers/preprint-v1-en.pdf), with
-  [TeX source](papers/preprint-v1-en.tex): the original dated Zenodo version,
-  DOI [10.5281/zenodo.23126820](https://doi.org/10.5281/zenodo.23126820).
-- [English major-revision draft](papers/revision-en.pdf), with
-  [TeX source](papers/revision-en.tex): 25 pages.
-- [Chinese major-revision draft](papers/revision-zh.pdf), with
-  [TeX source](papers/revision-zh.tex): 22 pages.
+## Papers
+
+- [English review manuscript](papers/revision-en.pdf), [TeX](papers/revision-en.tex): 25 pages.
+- [Chinese reading version](papers/revision-zh.pdf), [TeX](papers/revision-zh.tex): 22 pages.
 - [Response to the review](papers/response-to-review.txt).
+- [Original dated preprint v1](papers/preprint-v1-en.pdf),
+  DOI [10.5281/zenodo.23126820](https://doi.org/10.5281/zenodo.23126820).
 
-The revised drafts are not a revised Zenodo deposit or an accepted journal
-article. The full-corpus rule-use counts are still pending in the drafts.
-Complete artifact delivery and a full replay in an environment without access
-to the original workspace are also pending. Historical local acceptance
-records do not replace that replay. No formalization claim is made.
+## Complete certificate: download and verify
 
-## Run the self-contained positional sample
+The [versioned full review release](https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004) provides the original empty
+cover and **all 1,482,906 selected dependency files**, frozen mathematical
+checkers, input manifest, recorded verification and archive checksums.
+Original proof bytes and relative paths are preserved. The JSON dependencies
+total **48,588,463,288 bytes (45.25 GiB)**; exact compressed sizes and hashes
+are listed in the release's `archive-manifest.json`.
 
-Python 3.12 or newer is the proposed runtime; the actual staging test uses
-CPython 3.12.14. Only the Python standard library is required for checking.
-No search engine, search database, original workspace, or old success receipt
-is needed. Use an ordinary interpreter with assertions enabled; **never** use
-`-O`, `-OO`, or `PYTHONOPTIMIZE`.
-
-From this directory, run this single copyable command:
+Download that manifest, every `gomoku-full-review.tar.gz.NNN` volume,
+`unpack-review.py` and `review_transport.py` from the same release. Put them
+in one directory. Use **64-bit Windows and Python 3.12 or newer**; only the
+standard library is needed. A short new extraction destination is recommended.
 
 ```text
-python -B verify-review.py --sample --workers 1 --output-dir fresh-check
+python -B unpack-review.py archive-manifest.json --destination C:\gomoku-review
 ```
 
-Choose a new output directory for every run. `fresh-check` must not exist.
-The expected final file `fresh-check/release-acceptance.json` has status
-`VERIFIED_RELOCATED_POSITIONAL_SAMPLE` and scope
-`positional_only_not_empty_board`. Both a zero exit status and that exact
-acceptance record are required. Any exception, nonzero exit, missing record,
-or altered byte manifest is failure/unknown, never an accepted proof. Running
-without `--sample` is deliberately rejected because the full empty-board
-corpus is absent. The sample comprises 3,696 content-addressed objects (3,682
-ordinary proofs and 14 bundles) and 191,787 reachable ordinary-node occurrences.
+Then, from `C:\gomoku-review`, run:
 
-The eight mathematical kernel files are unchanged and separately identified
-in `CHECKER-FREEZE.json`. `reference_gap_package.py` is the content-addressed
-package adapter; `verify-review.py` and `receipt_stream.py` handle shipping and
-receipts. `release.json` binds the sample payload to `shipped-manifest.jsonl`.
-`STAGING-MANIFEST.json` records the rest of this small repository's bytes.
+```text
+python -B verify-full-review.py --workers 4 --output-dir fresh-check
+```
 
-## Two remote components: worked illustration
+The output directory must be new. Keep assertions enabled: do not use `-O`,
+`-OO` or `PYTHONOPTIMIZE`. The entry checks the complete input manifest and
+source identities, invokes the frozen mathematical checker, then seals all
+proof bytes again. It imports no search engine and uses no historical success
+receipt as an acceptance premise.
 
-The example is a normalized 18-stone position, not an empty-board proof and not
-a new opening root. It demonstrates local responses and two remote interruption
-graphs, with the bound 13 + 2(1 + 1) = 17 further actual placements, 35 total.
-Recheck it directly using the frozen independent checker:
+Require both **actual exit code zero** and `fresh-check/release-acceptance.json`
+with status **`VERIFIED_EMPTY_BOARD_REVIEW_RELEASE`**, scope `empty_board`,
+20 accepted opening roots, 120 covered first replies and `max_total_plies` 35.
+Missing dependencies, changed hashes, nonzero exits or unfinished coverage
+are not accepted. The recorded mathematical run took 27,837.450 seconds
+with four workers on an i7-12700H, 31.7 GiB RAM, Windows 11 machine.
+Allow storage for extracted data, downloaded volumes and new verification receipts.
+
+## Verification code and rule census
+
+All eight mathematical checker sources in `scripts/` remain byte-for-byte
+frozen, with identities in `CHECKER-FREEZE.json`. Shipping entries and archive
+tools are separate from mathematical decisions. Focused transport tests:
+
+```text
+python -B test_release_tools.py
+python -B test_review_entry.py
+```
+
+The [rule census](statistics/rule-use-counts.csv) counts all 17 ordinary rules:
+12 occur and five have zero uses. Theorem 6.7 is used 971,354 times; Theorem
+6.8 is used 64,888 times. Across 20 opening roots the total is 109,364,098
+reachable ordinary-node occurrences, not actual moves or distinct positions.
+[Census bindings](statistics/certificate-census.json) and the read-only
+[counting helper](tools/count_rules.py) make the statistics traceable.
+
+## Small examples
+
+The repository also supplies a self-contained positional sample. It has 3,696
+content-addressed objects and 191,787 reachable ordinary-node occurrences.
+This smaller sample has positional scope, not empty-board scope:
+
+```text
+python -B verify-review.py --sample --workers 1 --output-dir sample-check
+```
+
+Require `sample-check/release-acceptance.json` with status
+`VERIFIED_RELOCATED_POSITIONAL_SAMPLE` and an actual zero exit.
+
+The [two-remote-component worked example](examples/two-remote-components/)
+illustrates the long-rule bound 13 + 2(1 + 1) = 17 further placements, 35 total:
 
 ```text
 python -B -m scripts.reference_remote_interruption_sequence examples/two-remote-components/two-remote-components.json --output example-check.json
 ```
 
-Expected status: `VERIFIED_REMOTE_INTERRUPTION_STATE`, `remaining_plies` 17,
-`latest_win_ply` 35, and two remote components. The supplied historical
-verification and recorded states are supporting information, not acceptance
-premises for the fresh check. This command requires no primary search code.
+Its expected status is `VERIFIED_REMOTE_INTERRUPTION_STATE`, with
+`remaining_plies` 17, `latest_win_ply` 35 and two remote components.
 
-## Full proof release plan
+## Licensing
 
-The complete selected dependency closure is being inventoried. When the full
-package, licenses, file manifests, storage requirements, and fresh isolated
-full mathematical replay are complete, publish the full compressed certificate
-as versioned GitHub Release assets (split into volumes if required), together
-with its exact command and successful acceptance record. Do not place search
-caches, engine binaries, or the million-file working corpus into ordinary Git.
-No full-release size or external-replay completion is asserted here.
-
-Checking the proof does not require compiling the manuscripts. English TeX
-uses standard LaTeX packages; the Chinese source additionally uses XeLaTeX and
-the named Windows fonts (Times New Roman, SimSun, SimHei). The PDFs are supplied
-so reviewers do not need those compilation dependencies.
-
-See [LICENSES.md](LICENSES.md) for the distinct manuscript/code/data scopes.
+Code: **MIT**. Papers and certificate data: **CC BY 4.0**.
+See [LICENSES.md](LICENSES.md). Supplied PDFs do not require a TeX installation.

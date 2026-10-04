@@ -1,0 +1,84 @@
+{
+  "status": "COMPLETE_RECEIPT_BOUND_INVENTORY_NOT_MATHEMATICAL_RECHECK",
+  "seal_sha256": "226562fd83b790dbce3f076aedad58e7ff22f9ec4d8da78fe29982cd448b90f4",
+  "cover_sha256": "fce6b466f2675cb5a76f40b1e979fb77bdfc4abc6971971510e1c60196adf85c",
+  "distinct_paths": 1482906,
+  "dependency_occurrences": 1652612,
+  "totals": {
+    "payload_bytes": 48588463288,
+    "freestyle-gomoku-infinite-dynamic-gap": 1475609,
+    "ordinary_reachable_nodes": 102044378,
+    "ordinary_stored_nodes": 102044378,
+    "ordinary_unreachable_nodes": 0,
+    "freestyle-gomoku-infinite-gap-bundle": 7297,
+    "bundle_edges": 1819019
+  },
+  "weighted_occurrences": {
+    "freestyle-gomoku-infinite-dynamic-gap": 1644613,
+    "ordinary_reachable_nodes": 109364098,
+    "freestyle-gomoku-infinite-gap-bundle": 7999,
+    "bundle_edges": 1954756
+  },
+  "reference_spellings": {
+    "relative": 1819019,
+    "backslash": 1815336,
+    "forward_or_plain": 3683
+  },
+  "rule_unique_path_nodes": {
+    "black": 30376803,
+    "white_open_four_symbolic": 223772,
+    "white": 128467,
+    "white_forced_block_symbolic": 12784270,
+    "white_open_four_symbolic_component": 8323116,
+    "double_immediate_win": 10216305,
+    "infinite_threat_sequence": 39118753,
+    "white_fork_symbolic": 6320,
+    "terminal": 13864,
+    "white_open_four_symbolic_far": 3,
+    "prepared_remote_threat_sequence": 802572,
+    "remote_interruption_threat_sequence": 50133
+  },
+  "rule_node_occurrences": {
+    "black": 33273731,
+    "white_open_four_symbolic": 230240,
+    "white": 134032,
+    "white_forced_block_symbolic": 13998016,
+    "white_open_four_symbolic_component": 9229760,
+    "double_immediate_win": 11042442,
+    "infinite_threat_sequence": 40391466,
+    "white_fork_symbolic": 11176,
+    "terminal": 16990,
+    "white_open_four_symbolic_far": 3,
+    "prepared_remote_threat_sequence": 971354,
+    "remote_interruption_threat_sequence": 64888
+  },
+  "rule_counter_sha256": "dae4bb2aec75fa1dab202a31a537b3b64813dcf9f4a41747ae1bffd2d0e26cb6",
+  "seconds": 25255.733999999997,
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "manifest_sha256": "c295b525eee32281805b18f2add7a3ea3596f543a2b04c2bbae187487af1dfb8",
+  "scope": "Complete byte-bound census, not isolated mathematical replay",
+  "result_sha256": "20f1fe0a667e8743adab568046c44d7e97d3e9b2c36afdd9276cab244aaba3b7",
+  "payload_gib": 45.25153272598982,
+  "all_rule_counts": {
+    "black": 33273731,
+    "double_immediate_win": 11042442,
+    "double_open_four": 0,
+    "infinite_threat_sequence": 40391466,
+    "next_turn_finish": 0,
+    "prepared_remote_threat_sequence": 971354,
+    "remote_interruption_threat_sequence": 64888,
+    "terminal": 16990,
+    "white": 134032,
+    "white_critical": 0,
+    "white_forced_block_symbolic": 13998016,
+    "white_fork_symbolic": 11176,
+    "white_open_four_critical": 0,
+    "white_open_four_symbolic": 230240,
+    "white_open_four_symbolic_component": 9229760,
+    "white_open_four_symbolic_far": 3,
+    "white_open_four_symbolic_shared": 0
+  }
+}

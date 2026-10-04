@@ -25,7 +25,7 @@
 \newcommand{\Succ}{\operatorname{Succ}}
 \newcommand{\code}[1]{\texttt{#1}}
 \title{A Computer-Assisted Proof of a First-Player Win\\in Infinite Freestyle Gomoku}
-\author{Gaoqiang Liu\thanks{Major-revision draft following reader review; not externally peer reviewed. The complete certificate corpus is not yet publicly archived. Artifact availability and verification limitations are stated in Section~\ref{sec:repro}.}\\University of Bayreuth, Bayreuth, Germany\\\href{mailto:Gaoqiang.Liu@uni-bayreuth.de}{\texttt{Gaoqiang.Liu@uni-bayreuth.de}}}
+\author{Gaoqiang Liu\\University of Bayreuth, Bayreuth, Germany\\\href{mailto:Gaoqiang.Liu@uni-bayreuth.de}{\texttt{Gaoqiang.Liu@uni-bayreuth.de}}}
 \date{4 October 2026}
 \begin{document}
 \maketitle
@@ -44,8 +44,8 @@ than treated as a harmless pass. Symmetry reduces the first reply to 20
 orbits covering 120 normalized positions. Bounded threat rules compress parts
 of the strategy while retaining counterthreats and actual move counts. A
 checker independent of the search reconstructs successor sets and checks the
-complete dependency closure. We describe the mathematical soundness argument,
-the recorded verification, and the requirements for a portable release. The
+complete dependency closure. We supply the mathematical soundness argument, the recorded verification,
+and the complete certificate with frozen verification code. The
 bound is an upper bound, not an assertion of optimality.
 \end{abstract}
 
@@ -938,6 +938,8 @@ Ordinary reachable-node occurrences & 109,364,098\\
 Bundle-file occurrences & 7,999\\
 Bundle-edge occurrences & 1,954,756\\
 Distinct selected dependency paths & 1,482,906\\
+Distinct-path reachable nodes & 102,044,378\\
+Selected JSON payload, bytes & 48,588,463,288\\
 Fresh mathematical check, wall seconds & 27,837.450\\
 Separate full byte audit, wall seconds & 5,729.200\\
 \bottomrule
@@ -956,11 +958,13 @@ must record its actual runtime, hardware, exit status and wall time.
 
 
 \subsection{Rule correspondence and version binding}
-Appendix~\ref{app:rule-use} maps every node label to its mathematical
-statement, checker entry, premises and clock. The new complete usage
-census is distinct from mathematical replay; pending entries are unknown,
-not zero. In particular, samples cannot establish the final use of
-Theorems~\ref{mac:prepared} and~\ref{mac:interruption}.
+Appendix~\ref{app:rule-use} gives the completed census: 12 of the 17
+ordinary rule labels occur; the other five have zero uses. Prepared remote
+sequences occur 971,354 times and remote interruption sequences 64,888 times.
+The census read every selected dependency and checked its digest against the
+sealed fresh receipts; it counts reachable labels, not mathematical replay.
+Its CPython 3.12.14 Windows run reported 25,255.734 seconds. Full counts and
+bindings are supplied in \code{rule-use-counts.csv} and \code{certificate-census.json}.
 
 The accepted run binds the eight checker sources, actual roots, and selected
 proof bytes. A nonzero exit, missing dependency, stale receipt, source or
@@ -1001,40 +1005,39 @@ for all possible winning strategies.
 
 \section{Reproducibility and review materials}
 \label{sec:repro}
-The proof material is the empty cover and its entire selected dependency
-closure, together with the frozen eight-source checker. Logs, digests,
-sample games, and the manuscript alone cannot replace those files. A review
-package must include a byte manifest, licenses, source identities, a minimal
-standard-library runner, exact commands and expected outputs, measured
-storage requirements, and the successful run records. Search engines are
-not verification dependencies. Private delivery to reviewers is sufficient;
-an artifact DOI is not required to perform the check.
+The \href{https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004}{complete review release} supplies the empty cover,
+all 1,482,906 selected dependency files, frozen verification sources,
+file manifests, licenses, and recorded successful verification. The
+\href{https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof}{source repository}
+also provides the manuscripts, rule census, archive tools and examples.
+The archive preserves the original certificate bytes and relative paths,
+so the cover and checker identities in Section~\ref{sec:compute} remain valid.
+Selected JSON dependencies total 48,588,463,288 bytes (45.25 GiB), excluding
+metadata and verification receipts. Exact compressed volume sizes and
+SHA-256 values are supplied in \code{archive-manifest.json}.
 
-From the package root, the mathematical check uses the following single
-line, reproduced literally in \code{verify-command.txt}:
+Download all numbered volumes and the release's extraction entry, which
+checks their hashes and reconstructs the directory tree. Verification uses
+64-bit Windows and Python 3.12 or newer, with only the standard library.
+From the extracted package root, run this one copyable line:
 \begin{quote}\small
-\verb|python -B verify-review.py --workers 4 --output-dir fresh-check|
+\verb|python -B verify-full-review.py --workers 4 --output-dir fresh-check|
 \end{quote}
-Here \code{fresh-check} must be new. Expected output is exit status zero,
-\code{release-acceptance.json} with status
-\code{VERIFIED\_RELOCATED\_EMPTY\_BOARD\_REVIEW\_RELEASE},
-20 accepted roots, 120 covered replies, and total-placement bound 35.
-A complete fresh byte audit must bind the
-result to the package manifest. Assertions must be enabled. Any mismatch,
-nonzero exit, missing file, or interrupted run is rejected; a progress file
-or a successful sample is insufficient.
+The output directory must be new and assertions enabled. The entry checks
+shipped bytes and source identities, calls the frozen mathematical checker
+on the entire closure, and seals the inputs again. Successful output is
+actual exit status zero and \code{fresh-check/release-acceptance.json} with
+status \code{VERIFIED\_EMPTY\_BOARD\_REVIEW\_RELEASE}, 20 accepted roots,
+120 covered first replies, and total-placement bound 35. Errors, altered
+bytes, missing dependencies or unfinished coverage are rejected. Historical
+receipts document the recorded run; they are not premises of this fresh check.
 
-The manuscript is publicly available as version 1; the complete certificate
-has not yet been delivered as a portable review package. The revised review
-materials freeze the checker and provide a positional smoke test in a
-separate directory on the same Windows host. This is neither an isolated
-environment nor full verification. The complete path inventory,
-rule-use census, actual storage totals, and full replay without access to
-the original workspace are release gates, whose recorded status is stated
-in the accompanying review report. No sample compression ratio is used to
-estimate the complete corpus. Appendix~\ref{app:provenance} gives the
-relocation requirements. Until the full package and isolated replay are
-available, external review of the computational proof remains incomplete.
+The recorded mathematical run took 27,837.450 wall seconds with four workers
+on the machine described in Section~\ref{sec:compute}.
+Allow storage for the extracted JSON corpus, downloaded volumes and new
+receipts; the release README gives the extraction and verification steps.
+Verification requires no search engine or search cache. Code is licensed
+under MIT; manuscripts and certificate data under CC BY 4.0.
 
 
 \section{Discussion}
@@ -1043,8 +1046,7 @@ rules. A remote threat can force real defensive moves; its cost is included
 in the long-rule clock. Failure of isolation or counterthreat conditions
 requires explicit expansion. Conservative abstraction can enlarge proof
 trees, so refined rules and alternative Black actions may reduce size, but
-need their own soundness and verification arguments. The remaining acceptance
-requirements are full artifact delivery and isolated full replication.
+need their own soundness and verification arguments.
 Neither optimality of 35 nor a smaller universal remote-play bound is claimed.
 
 \appendix
@@ -1081,8 +1083,7 @@ research exploration, programming, debugging, and manuscript preparation;
 exact model identifiers are not established for every historical interaction.
 RV2 and Rapfi supplied untrusted move proposals. Their evaluations are not
 acceptance criteria, and the independent checker imports neither the search
-implementation nor either engine. The work has
-not undergone external peer review or proof-assistant formalization.
+implementation nor either engine.
 
 
 \section{Computational provenance and relocation}
@@ -1095,21 +1096,17 @@ persistent errors still failed. Its completion gate binds successful runs,
 roots, source identities and bytes; it is not another mathematical traversal.
 Later dashboard edits did not change the frozen eight-source kernel.
 
-The original references must resolve entirely inside a review package.
-Windows backslashes in path fields need schema-aware treatment on POSIX.
-A changed proof file changes its digest and every ancestor binding it;
-such a derivation requires a new full mathematical check and byte manifest.
-A new path-resolving loader likewise needs review. Original accepted bytes
-and historical receipts remain frozen. A release replay must have no access
-to the original workspace. The 39-file compression sample in the original
-artifact assessment is not a full package or a basis for storage estimates.
+The release retains the original proof bytes and Windows relative reference
+paths. The shipping manifest enumerates the complete selected closure;
+the review entry checks that every declared external reference is bound to
+a file within that closure. The mathematical checker reconstructs all
+retained successor obligations and validates their roots and digests.
+Archive-volume checksums identify the delivered bytes. The original recorded
+verification and final byte seal are supplied as computational provenance.
 
 
 \section{Rule use and checker correspondence}
 \label{app:rule-use}
-% Editorial fragment only. Replace each \RuleCount{COUNT_kind} by the
-% SHA-bound full-closure census value before claiming a completed usage audit.
-\providecommand{\RuleCount}[1]{\textit{pending}}
 
 
 
@@ -1126,23 +1123,23 @@ Node kind & Result & Entry & Checked premises; additional actual moves & Uses\\
 Node kind & Result & Entry & Checked premises; additional actual moves & Uses\\
 \midrule
 \endhead
-\texttt{terminal} & \ref{thm:sound} & G.v & Black just made five; White has no five; $0$. & \RuleCount{COUNT_terminal}\\
-\texttt{black} & \ref{lem:black} & G.v & Legal anchored action, all its successors; $1$ per edge. & \RuleCount{COUNT_black}\\
-\texttt{white} & \ref{lem:white} & G.v & Every normalized White successor; $1$ per edge. & \RuleCount{COUNT_white}\\
-\texttt{double\_\allowbreak immediate\_\allowbreak win} & \ref{mac:double-completion} & G.v & No White completion; at least two Black completions; $2$. & \RuleCount{COUNT_double_immediate_win}\\
-\texttt{double\_\allowbreak open\_\allowbreak four} & \ref{mac:double-completion} & G.v & The same premises as double completion; $2$. & \RuleCount{COUNT_double_open_four}\\
-\texttt{next\_\allowbreak turn\_\allowbreak finish} & \ref{mac:finish-critical} & G.v & Every White child has no White five and a Black completion; $2$. & \RuleCount{COUNT_next_turn_finish}\\
-\texttt{white\_\allowbreak critical} & \ref{mac:finish-critical} & G.v & No White child wins; retain all without Black completion; omitted replies: $2$. & \RuleCount{COUNT_white_critical}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak critical} & \ref{mac:small-open-four} & G.v & Exactly $(|B|,|W|)=(3,2)$; retain all children without a template; omitted replies: $4$. & \RuleCount{COUNT_white_open_four_critical}\\
-\texttt{white\_\allowbreak forced\_\allowbreak block\_\allowbreak symbolic} & \ref{mac:forced-block} & G.c & No White completion; Black completion; retain its block; omitted replies: $2$. & \RuleCount{COUNT_white_forced_block_symbolic}\\
-\texttt{white\_\allowbreak fork\_\allowbreak symbolic} & \ref{mac:fork} & G.c & Rigid fork, all fork blockers and White counterfours; omitted replies: $4$. & \RuleCount{COUNT_white_fork_symbolic}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic} & \ref{mac:template-family} & G.c & Rigid selected template family and all counterfours; omitted replies: $4$. & \RuleCount{COUNT_white_open_four_symbolic}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak shared} & \ref{mac:template-family} & G.c & At least five Black stones; templates share an old Black supporter; omitted replies: $4$. & \RuleCount{COUNT_white_open_four_symbolic_shared}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak component} & \ref{mac:template-family} & G.c & At least five Black stones; supports in one old rigid component; omitted replies: $4$. & \RuleCount{COUNT_white_open_four_symbolic_component}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak far} & \ref{mac:template-family} & G.c & At least six Black stones; two templates have supporters farther than $8$; omitted replies: $4$. & \RuleCount{COUNT_white_open_four_symbolic_far}\\
-\texttt{infinite\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:infinite} & I.v & All $B$ in $C$; local closure; no remote White triple; separated envelopes; $M$; $L\le H-p$. & \RuleCount{COUNT_infinite_threat_sequence}\\
-\texttt{prepared\_\allowbreak remote\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:prepared} & P.v & Local closure; remote triples blocked; all remote stones avoid $E$; $M$; $L\le H-p$. & \RuleCount{COUNT_prepared_remote_threat_sequence}\\
-\texttt{remote\_\allowbreak interruption\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:interruption} & R.v & Complete local/remote closures; unique blocks; separated envelopes; all-state $MI$; $L+2\sum_jN_j\le H-p$. & \RuleCount{COUNT_remote_interruption_threat_sequence}\\
+\texttt{terminal} & \ref{thm:sound} & G.v & Black just made five; White has no five; $0$. & 16,990\\
+\texttt{black} & \ref{lem:black} & G.v & Legal anchored action, all its successors; $1$ per edge. & 33,273,731\\
+\texttt{white} & \ref{lem:white} & G.v & Every normalized White successor; $1$ per edge. & 134,032\\
+\texttt{double\_\allowbreak immediate\_\allowbreak win} & \ref{mac:double-completion} & G.v & No White completion; at least two Black completions; $2$. & 11,042,442\\
+\texttt{double\_\allowbreak open\_\allowbreak four} & \ref{mac:double-completion} & G.v & The same premises as double completion; $2$. & 0\\
+\texttt{next\_\allowbreak turn\_\allowbreak finish} & \ref{mac:finish-critical} & G.v & Every White child has no White five and a Black completion; $2$. & 0\\
+\texttt{white\_\allowbreak critical} & \ref{mac:finish-critical} & G.v & No White child wins; retain all without Black completion; omitted replies: $2$. & 0\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak critical} & \ref{mac:small-open-four} & G.v & Exactly $(|B|,|W|)=(3,2)$; retain all children without a template; omitted replies: $4$. & 0\\
+\texttt{white\_\allowbreak forced\_\allowbreak block\_\allowbreak symbolic} & \ref{mac:forced-block} & G.c & No White completion; Black completion; retain its block; omitted replies: $2$. & 13,998,016\\
+\texttt{white\_\allowbreak fork\_\allowbreak symbolic} & \ref{mac:fork} & G.c & Rigid fork, all fork blockers and White counterfours; omitted replies: $4$. & 11,176\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic} & \ref{mac:template-family} & G.c & Rigid selected template family and all counterfours; omitted replies: $4$. & 230,240\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak shared} & \ref{mac:template-family} & G.c & At least five Black stones; templates share an old Black supporter; omitted replies: $4$. & 0\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak component} & \ref{mac:template-family} & G.c & At least five Black stones; supports in one old rigid component; omitted replies: $4$. & 9,229,760\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak far} & \ref{mac:template-family} & G.c & At least six Black stones; two templates have supporters farther than $8$; omitted replies: $4$. & 3\\
+\texttt{infinite\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:infinite} & I.v & All $B$ in $C$; local closure; no remote White triple; separated envelopes; $M$; $L\le H-p$. & 40,391,466\\
+\texttt{prepared\_\allowbreak remote\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:prepared} & P.v & Local closure; remote triples blocked; all remote stones avoid $E$; $M$; $L\le H-p$. & 971,354\\
+\texttt{remote\_\allowbreak interruption\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:interruption} & R.v & Complete local/remote closures; unique blocks; separated envelopes; all-state $MI$; $L+2\sum_jN_j\le H-p$. & 64,888\\
 \bottomrule
 \end{longtable}
 \endgroup

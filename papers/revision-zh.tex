@@ -35,7 +35,7 @@
 \newcommand{\Succ}{\operatorname{Succ}}
 \newcommand{\code}[1]{\texttt{#1}}
 \title{无限自由五子棋先手必胜的计算机辅助证明\\\large 中文阅读译本}
-\author{Gaoqiang Liu\thanks{依独立审阅意见修订的阅读稿，尚未经过外部同行评审。完整证书的可移植交付状态见第~\ref{sec:repro} 节。}\\拜罗伊特大学，德国拜罗伊特\\\href{mailto:Gaoqiang.Liu@uni-bayreuth.de}{\texttt{Gaoqiang.Liu@uni-bayreuth.de}}}
+\author{Gaoqiang Liu\\拜罗伊特大学，德国拜罗伊特\\\href{mailto:Gaoqiang.Liu@uni-bayreuth.de}{\texttt{Gaoqiang.Liu@uni-bayreuth.de}}}
 \date{2026年10月4日}
 \begin{document}
 \maketitle
@@ -51,7 +51,7 @@
 利用对称性，后手的第一次回应被约化为 20 个轨道，覆盖 120 个规范化局面。
 有界威胁规则压缩了策略的部分内容，同时保留反威胁和实际落子次数。
 独立于搜索的检查器重建后继集合，并检查完整的依赖闭包。
-我们说明数学上的可靠性论证、已记录的验证过程以及可移植发布的要求。
+我们提供数学上的可靠性论证、已记录的验证过程，以及完整证书与冻结验证代码。
 这个界是上界，并不声称其为最优。
 \end{abstract}
 
@@ -805,6 +805,8 @@ $\A(MP)=M\A(P)$。
 包文件出现次数 & 7,999\\
 包边出现次数 & 1,954,756\\
 不同的选定依赖路径 & 1,482,906\\
+按不同路径计的可达节点 & 102,044,378\\
+所选JSON载荷，字节 & 48,588,463,288\\
 重新数学检查的墙钟秒数 & 27,837.450\\
 单独完整字节审计的墙钟秒数 & 5,729.200\\
 \bottomrule
@@ -817,7 +819,7 @@ $\A(MP)=M\A(P)$。
 
 
 \subsection{规则对应与版本绑定}
-附录~\ref{app:rule-use} 对每个节点标签列出数学命题、检查入口、前提及步数界。新的全量用量普查不同于数学复验；待统计表示未知，不是零。尤其不能以样例确立最终证书是否采用定理~\ref{mac:prepared} 和~\ref{mac:interruption}。
+附录~\ref{app:rule-use} 给出完整普查：17种普通规则中12种实际使用，另外5种用量为零。准备远程序列出现971,354次，远程中断序列出现64,888次。普查读取每个所选依赖并与最终封装回执核对摘要，统计根可达规则标签，不替代数学复验。其CPython 3.12.14、Windows运行报告25,255.734秒；完整计数与绑定见 \code{rule-use-counts.csv} 和 \code{certificate-census.json}。
 
 被接受的运行绑定八份检查器源码、实际根和选定证明字节。非零退出、缺失依赖、过期回执、源码或字节不匹配、覆盖不完整、规则闭包未完成，均判为失败，不能视为证明。附录~\ref{app:provenance} 记录历史失败与最终记录完整性检查。
 
@@ -834,19 +836,27 @@ $\A(MP)=M\A(P)$。
 
 \section{可复现性与评审材料}
 \label{sec:repro}
-证明材料是空盘覆盖证书及其完整选定依赖闭包，以及冻结的八份验证源码。日志、摘要、示例棋谱和论文均不能代替这些文件。评审包必须包含字节清单、许可证、源码身份、仅依赖标准库的入口、确定命令和预期输出、实测存储需求及成功运行记录。核验不依赖搜索引擎。审稿期私下交付即可，不要求先取得证明产物 DOI。
+\href{https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004}{完整评审发布包}提供空盘覆盖头、全部1,482,906个所选依赖文件、冻结验证源码、文件清单、许可证与已记录的成功核验。
+\href{https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof}{源码仓库}另提供论文、规则普查、封装工具与示例。
+发布包保留原证书字节与相对路径，因此第~\ref{sec:compute} 节的覆盖头及检查器身份保持有效。
+所选JSON依赖合计48,588,463,288字节（45.25 GiB），不含元数据及核验回执。精确压缩分卷体积和SHA-256见 \code{archive-manifest.json}。
 
-在包根目录执行以下单行命令；同样的字面文本保存于 \code{verify-command.txt}：
+下载全部编号分卷及发布页上的解包入口；入口校验各卷哈希并还原目录树。核验使用64位Windows及Python 3.12或以上版本，仅依赖标准库。
+在解包根目录执行以下可直接复制的单行命令：
 \begin{quote}\small
-\verb|python -B verify-review.py --workers 4 --output-dir fresh-check|
+\verb|python -B verify-full-review.py --workers 4 --output-dir fresh-check|
 \end{quote}
-\code{fresh-check} 必须为新目录。预期结果为实际退出状态零，\code{release-acceptance.json} 的状态为 \code{VERIFIED\_RELOCATED\_EMPTY\_BOARD\_REVIEW\_RELEASE}，接受20个根、覆盖120个应手，总落子界35。随后完整字节审计须将结果绑定至包清单。必须启用断言。任何不匹配、非零退出、文件缺失或中断均为失败；进度记录或成功样例均不足以验收全证书。
+输出目录必须为新目录，并须启用断言。入口检查交付字节与源码身份，调用冻结数学核检查全部闭包，再封装输入字节。
+成功条件为实际退出状态零，且 \code{fresh-check/release-acceptance.json} 状态为 \code{VERIFIED\_EMPTY\_BOARD\_REVIEW\_RELEASE}，接受20个根、覆盖120个首应，总落子界35。
+错误、字节改变、缺失依赖或未完成覆盖均被拒绝。历史回执记录原核验运行，不作为新鲜检查的证明前提。
 
-英文第 1 版论文已公开；完整证书尚未作为可移植评审包交付。本轮材料冻结验证核，并在同一Windows主机的另一目录中完成局面示例复验；这不是隔离环境，也不是全量核验。全路径清单、规则用量普查、实测存储总量及无法访问原工作区的完整复验，均是交付关卡，其实际状态见随附修订报告。不以样例压缩率推算全证书体积。路径迁移要求见附录~\ref{app:provenance}。在完整包与隔离全量复验可用之前，计算证明的外部复核仍未完成。
+已记录的数学核验在第~\ref{sec:compute} 节所述稿件准备机器上使用4个工作进程，墙钟用时27,837.450秒。
+应为解包JSON、下载分卷及新回执预留空间；发布包README给出完整解包及核验步骤。核验无需搜索引擎或搜索缓存。
+代码采用MIT许可；论文与证书数据采用CC BY 4.0许可。
 
 
 \section{讨论}
-远处行棋由完整插入集合及经检查的充分规则覆盖。远处威胁可能迫使真实防守，其耗时计入长规则步数界。不满足隔离或反威胁条件时必须显式展开。保守抽象可能扩大证明树；更细规则或替代黑着可缩小规模，但须各自证明可靠性并核验。接收前仍须完整交付证明产物并完成隔离全量复验。本文不主张35最优，也未确立更小的普遍远处行棋上界。
+远处行棋由完整插入集合及经检查的充分规则覆盖。远处威胁可能迫使真实防守，其耗时计入长规则步数界。不满足隔离或反威胁条件时必须显式展开。保守抽象可能扩大证明树；更细规则或替代黑着可缩小规模，但须各自证明可靠性并核验。本文不主张35最优，也未确立更小的普遍远处行棋上界。
 
 \appendix
 
@@ -868,20 +878,18 @@ prepared\_remote\_sequence.py & remote\_interruption\_sequence.py
 
 
 \section{贡献与研究工具}
-作者提供研究目标、策略指导与项目监督。研究探索、程序开发、调试和稿件准备使用了 OpenAI Codex 及语言模型辅助；未能为每次历史交互确定精确模型标识。RV2 与 Rapfi 提供不受信任的选点建议，其评分不是证明验收条件。独立检查器不导入搜索实现或两种引擎。本工作尚未经过外部同行评审，也未进行证明助手形式化。
+作者提供研究目标、策略指导与项目监督。研究探索、程序开发、调试和稿件准备使用了 OpenAI Codex 及语言模型辅助；未能为每次历史交互确定精确模型标识。RV2 与 Rapfi 提供不受信任的选点建议，其评分不是证明验收条件。独立检查器不导入搜索实现或两种引擎。
 
 
 \section{计算来源记录与路径迁移}
 \label{app:provenance}
 历史运行曾因工作池损坏、审计退出状态120、替换进度文件时的 Windows 错误5而失败，均未验收或计入成功用时。最终审计只增加有界替换重试，数学检查与哈希主体未变，持续错误仍判失败。完成关卡绑定成功运行、根、源码身份和字节，不是另一次数学遍历。后续监控页修改未改变冻结的八源验证核。
 
-所有引用必须在评审包内部解析。POSIX 上的 Windows 反斜线须按字段结构处理。改写证明文件会改变它及所有绑定它的祖先摘要，因此转换包需要新的完整数学检查和字节清单；新的路径加载器也需审查。原验收字节与历史回执保持冻结。发布复验必须无法访问原工作区。原产物评估中的 39 文件压缩样本既不是完整包，也不能据此推算全体存储需求。
+发布包保留原证明字节与Windows相对引用路径。交付清单枚举完整选定闭包；评审入口检查每个外部引用都绑定到闭包内部的文件。数学核重新构造保留的后继义务并检查根与摘要。分卷校验和标识交付字节，原已记录的数学核验及最终字节封装作为计算来源材料一并提供。
 
 
 \section{规则用量与检查入口对应}
 \label{app:rule-use}
-% 与英文表同口径。完整闭包统计完成前，用量 pending 不能解释为零。
-\providecommand{\RuleCount}[1]{\textit{待统计}}
 
 
 
@@ -896,23 +904,23 @@ prepared\_remote\_sequence.py & remote\_interruption\_sequence.py
 节点规则 & 命题 & 入口 & 检查前提；额外实际落子数 & 用量\\
 \midrule
 \endhead
-\texttt{terminal} & \ref{thm:sound} & G.v & 黑刚成五且白无五；$0$。 & \RuleCount{COUNT_terminal}\\
-\texttt{black} & \ref{lem:black} & G.v & 相对黑着合法，覆盖其全部后继；每边$1$。 & \RuleCount{COUNT_black}\\
-\texttt{white} & \ref{lem:white} & G.v & 覆盖全部规范化白后继；每边$1$。 & \RuleCount{COUNT_white}\\
-\texttt{double\_\allowbreak immediate\_\allowbreak win} & \ref{mac:double-completion} & G.v & 白无即时获胜点；黑有至少两个；$2$。 & \RuleCount{COUNT_double_immediate_win}\\
-\texttt{double\_\allowbreak open\_\allowbreak four} & \ref{mac:double-completion} & G.v & 与双完成规则相同前提；$2$。 & \RuleCount{COUNT_double_open_four}\\
-\texttt{next\_\allowbreak turn\_\allowbreak finish} & \ref{mac:finish-critical} & G.v & 每个白后继中白无五且黑有获胜点；$2$。 & \RuleCount{COUNT_next_turn_finish}\\
-\texttt{white\_\allowbreak critical} & \ref{mac:finish-critical} & G.v & 白后继均无白五；保留全部黑无获胜点的后继；省略支$2$。 & \RuleCount{COUNT_white_critical}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak critical} & \ref{mac:small-open-four} & G.v & 精确$(|B|,|W|)=(3,2)$；保留全部无模板后继；省略支$4$。 & \RuleCount{COUNT_white_open_four_critical}\\
-\texttt{white\_\allowbreak forced\_\allowbreak block\_\allowbreak symbolic} & \ref{mac:forced-block} & G.c & 白无获胜点且黑有；保留其防点；省略支$2$。 & \RuleCount{COUNT_white_forced_block_symbolic}\\
-\texttt{white\_\allowbreak fork\_\allowbreak symbolic} & \ref{mac:fork} & G.c & 刚性双杀，完整防点及白反冲四；省略支$4$。 & \RuleCount{COUNT_white_fork_symbolic}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic} & \ref{mac:template-family} & G.c & 选取同一刚性框架中的模板族并保留反冲四；省略支$4$。 & \RuleCount{COUNT_white_open_four_symbolic}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak shared} & \ref{mac:template-family} & G.c & 至少五黑；模板共享旧黑支持点；省略支$4$。 & \RuleCount{COUNT_white_open_four_symbolic_shared}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak component} & \ref{mac:template-family} & G.c & 至少五黑；模板支持点属于同一旧刚性分量；省略支$4$。 & \RuleCount{COUNT_white_open_four_symbolic_component}\\
-\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak far} & \ref{mac:template-family} & G.c & 至少六黑；两个模板存在距离大于$8$的支持点；省略支$4$。 & \RuleCount{COUNT_white_open_four_symbolic_far}\\
-\texttt{infinite\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:infinite} & I.v & 全部黑子在$C$；局部闭包；远白无三；包络分离及$M$；$L\le H-p$。 & \RuleCount{COUNT_infinite_threat_sequence}\\
-\texttt{prepared\_\allowbreak remote\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:prepared} & P.v & 局部闭包；远三已堵；远棋包络避$E$；$M$；$L\le H-p$。 & \RuleCount{COUNT_prepared_remote_threat_sequence}\\
-\texttt{remote\_\allowbreak interruption\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:interruption} & R.v & 完整局部及远程闭包；唯一防点；包络分离；全部记录态$MI$；$L+2\sum_jN_j\le H-p$。 & \RuleCount{COUNT_remote_interruption_threat_sequence}\\
+\texttt{terminal} & \ref{thm:sound} & G.v & 黑刚成五且白无五；$0$。 & 16,990\\
+\texttt{black} & \ref{lem:black} & G.v & 相对黑着合法，覆盖其全部后继；每边$1$。 & 33,273,731\\
+\texttt{white} & \ref{lem:white} & G.v & 覆盖全部规范化白后继；每边$1$。 & 134,032\\
+\texttt{double\_\allowbreak immediate\_\allowbreak win} & \ref{mac:double-completion} & G.v & 白无即时获胜点；黑有至少两个；$2$。 & 11,042,442\\
+\texttt{double\_\allowbreak open\_\allowbreak four} & \ref{mac:double-completion} & G.v & 与双完成规则相同前提；$2$。 & 0\\
+\texttt{next\_\allowbreak turn\_\allowbreak finish} & \ref{mac:finish-critical} & G.v & 每个白后继中白无五且黑有获胜点；$2$。 & 0\\
+\texttt{white\_\allowbreak critical} & \ref{mac:finish-critical} & G.v & 白后继均无白五；保留全部黑无获胜点的后继；省略支$2$。 & 0\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak critical} & \ref{mac:small-open-four} & G.v & 精确$(|B|,|W|)=(3,2)$；保留全部无模板后继；省略支$4$。 & 0\\
+\texttt{white\_\allowbreak forced\_\allowbreak block\_\allowbreak symbolic} & \ref{mac:forced-block} & G.c & 白无获胜点且黑有；保留其防点；省略支$2$。 & 13,998,016\\
+\texttt{white\_\allowbreak fork\_\allowbreak symbolic} & \ref{mac:fork} & G.c & 刚性双杀，完整防点及白反冲四；省略支$4$。 & 11,176\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic} & \ref{mac:template-family} & G.c & 选取同一刚性框架中的模板族并保留反冲四；省略支$4$。 & 230,240\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak shared} & \ref{mac:template-family} & G.c & 至少五黑；模板共享旧黑支持点；省略支$4$。 & 0\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak component} & \ref{mac:template-family} & G.c & 至少五黑；模板支持点属于同一旧刚性分量；省略支$4$。 & 9,229,760\\
+\texttt{white\_\allowbreak open\_\allowbreak four\_\allowbreak symbolic\_\allowbreak far} & \ref{mac:template-family} & G.c & 至少六黑；两个模板存在距离大于$8$的支持点；省略支$4$。 & 3\\
+\texttt{infinite\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:infinite} & I.v & 全部黑子在$C$；局部闭包；远白无三；包络分离及$M$；$L\le H-p$。 & 40,391,466\\
+\texttt{prepared\_\allowbreak remote\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:prepared} & P.v & 局部闭包；远三已堵；远棋包络避$E$；$M$；$L\le H-p$。 & 971,354\\
+\texttt{remote\_\allowbreak interruption\_\allowbreak threat\_\allowbreak sequence} & \ref{mac:interruption} & R.v & 完整局部及远程闭包；唯一防点；包络分离；全部记录态$MI$；$L+2\sum_jN_j\le H-p$。 & 64,888\\
 \bottomrule
 \end{longtable}
 \endgroup

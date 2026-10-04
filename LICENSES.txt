@@ -1,0 +1,16 @@
+Author: Gaoqiang Liu, University of Bayreuth
+Contact: Gaoqiang.Liu@uni-bayreuth.de
+
+The manuscripts and mathematical certificate data are licensed under Creative
+Commons Attribution 4.0 International (CC BY 4.0).
+License text: https://creativecommons.org/licenses/by/4.0/legalcode
+When redistributing the certificate, credit Gaoqiang Liu, name the result
+"A Computer-Assisted Proof of a First-Player Win in Infinite Freestyle Gomoku",
+link to https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof,
+provide the license link, and identify modifications.
+
+The independent verifier and the archive, extraction, and review-entry source
+files are licensed under the MIT License, reproduced in LICENSE-CODE.txt.
+
+Search engines, engine weights and search caches are not dependencies of this
+verification release.

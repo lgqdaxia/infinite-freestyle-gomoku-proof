@@ -1,16 +1,12 @@
-# License status
+# Licenses
 
-The public English version 1 manuscript (`papers/preprint-v1-en.pdf` and
-`papers/preprint-v1-en.tex`) is licensed under Creative Commons Attribution 4.0
-International (CC BY 4.0), as recorded in the published Zenodo deposit:
-https://doi.org/10.5281/zenodo.23126820 . Author: Gaoqiang Liu.
-License text: https://creativecommons.org/licenses/by/4.0/legalcode .
+Copyright 2026 Gaoqiang Liu.
 
-The revised manuscripts are local review drafts. This preparation does not
-assign them a new publication version or a new license.
+- Verification code, archive tools and tests: **MIT**, see [LICENSE-CODE.txt](LICENSE-CODE.txt).
+- Manuscripts, proof certificates, examples and statistical data: **Creative Commons
+  Attribution 4.0 International (CC BY 4.0)**, see
+  [the license terms](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-A license for the checker/transport source and proof data has not yet been
-designated by the author. The manuscript's CC BY 4.0 license is not an automatic
-license grant for these files. No permissive code or data license is asserted
-by this staging directory. Resolve these licenses before an open-source or
-licensed-data release; record separate scopes explicitly.
+When reusing the papers or proof data, credit Gaoqiang Liu, cite the relevant
+manuscript and identify the release version. Indicate any changes.
+Third-party works cited in the manuscripts retain their own copyrights.

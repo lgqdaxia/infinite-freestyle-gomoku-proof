@@ -1,0 +1,17 @@
+{
+  "status": "CENSUS_RESULT_AND_MANIFEST_INDEPENDENTLY_BOUND",
+  "at_utc": "2026-10-04T08:18:19.915280+00:00",
+  "result_sha256": "20f1fe0a667e8743adab568046c44d7e97d3e9b2c36afdd9276cab244aaba3b7",
+  "manifest_sha256": "c295b525eee32281805b18f2add7a3ea3596f543a2b04c2bbae187487af1dfb8",
+  "catalog_sha256": "dae4bb2aec75fa1dab202a31a537b3b64813dcf9f4a41747ae1bffd2d0e26cb6",
+  "inventory_source_sha256": "e087ca4cb45cd47b80077da382169cc836119146fa4d858bf28b9a840537a2aa",
+  "sqlite_totals": [
+    1482906,
+    1652612,
+    48588463288
+  ],
+  "counts_sum": 109364098,
+  "original_inventory_actual_exit_code": null,
+  "original_exit_note": "No surviving terminal observer receipt; exit zero is not inferred from result or missing PID.",
+  "scope": "Byte/schema/census consistency, not fresh mathematical replay"
+}

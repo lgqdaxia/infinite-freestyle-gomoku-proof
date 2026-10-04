@@ -1,10 +1,11 @@
-Response to the independent review — local major-revision draft
+Response to the independent review — major-revision draft
 4 October 2026
 
 The English and Chinese manuscripts have been revised together. This reply
-distinguishes completed editorial/mathematical changes from pending artifact
-acceptance requirements. The published version 1 and the accepted mathematical
-checker sources have not been changed. This revision has not been published.
+summarizes the mathematical clarifications, complete rule census and delivered
+computational materials. The published version 1 and the frozen mathematical
+checker sources remain unchanged. The review manuscripts and complete
+certificate are supplied through the versioned GitHub release.
 
 1. Mathematical framework.
    The insertion coverage, universal Black-outcome obligation, opening symmetry
@@ -12,30 +13,29 @@ checker sources have not been changed. This revision has not been published.
    occupancy argument and the treatment of unrecorded intermediate states in
    Lemmas 6.2 and 6.5 have not been shortened away.
 
-2. Complete review package — partly implemented; acceptance requirement pending.
-   Section 10 specifies the complete selected dependency closure, frozen
-   eight-source checker, byte manifest, runtime record, copyable entry command,
-   expected final status, and failure conditions. Review tools freeze the
-   checker and derive package-internal references while preserving the original
-   accepted material. Derived material remains a candidate until a new full
-   mathematical and byte check succeeds.
-   A fresh positional package check in a separate directory on the same Windows
-   host succeeded. This is neither an OS-isolated environment nor the complete
-   empty-board corpus. Full-corpus byte/rule inventory is running. Complete
-   package delivery, actual full storage requirements, code/data redistribution
-   notices, and a full replay with no original-workspace access remain pending.
-   No sample or historical receipt is substituted for that replay. Private
-   reviewer delivery is acceptable; an artifact DOI is not a prerequisite.
+2. Complete computational review materials.
+   The release provides the original empty cover, the entire 1,482,906-file
+   selected dependency closure, all eight frozen mathematical checker sources,
+   the input byte manifest, licenses, archive checksums and verification entry.
+   Original proof bytes and relative references are preserved. No proof file or
+   mathematical checker was rewritten for packaging. The revised Section 10
+   gives the download location, platform, exact command and successful output.
+   Reviewers can run the complete mathematical check directly on these inputs;
+   no engine, search cache or historical success receipt is required.
+   The completed census measures 48,588,463,288 bytes of JSON dependencies and
+   reproduces the 109,364,098 ordinary-node occurrence total.
 
-3. Mathematical rule / program / certificate correspondence — partly completed.
+3. Mathematical rule / program / certificate correspondence — completed.
    Appendix E lists all 17 accepted ordinary-node labels, mathematical results,
    checker entries, premises and actual-move clocks. Modular Black/White headers
    are identified separately. Theorem 6.7 and Theorem 6.8 are explicit rows.
    Usage is defined as root-reachable ordinary-node occurrences, summed over
    the 20 opening roots, rather than stored unreachable nodes or execution paths.
-   The full selected-corpus census is still running; pending entries mean
-   unknown, not zero. In particular, final use counts for 6.7 and 6.8 have not
-   been established by the samples or by the new illustrative certificate.
+   All 17 rule counts are now bound to the complete selected corpus:
+   12 labels occur and five have zero uses. Theorem 6.7 occurs 971,354 times,
+   and Theorem 6.8 occurs 64,888 times. Their counts come from the full census,
+   not samples. Independent CSV/JSON records give occurrence and distinct-path
+   totals, with the 109,364,098 aggregate reproduced exactly.
 
 4. Remote-interruption auditability — completed in the manuscript.
    Appendix F gives a complete small certificate with two active remote
@@ -71,7 +71,7 @@ checker sources have not been changed. This revision has not been published.
    opening coverage remain in the manuscript. English remains 25 pages and
    Chinese 22 pages, with unchanged body font and margins.
 
-The draft therefore addresses the mathematical and presentation requests,
-but does not claim that items 2 and the usage-count portion of item 3 have
-been satisfied. Submission as a fully completed major revision should wait
-for the complete package, census and isolated full replay.
+The revised manuscripts provide the mathematical arguments, complete rule
+counts, computational materials and exact reviewer commands together.
+Complete review release:
+https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004
