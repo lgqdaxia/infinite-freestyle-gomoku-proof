@@ -1,7 +1,7 @@
 {
   "format": "gomoku-review-source-repository",
   "version": 1,
-  "prepared_utc": "2026-10-04T09:13:25.216930+00:00",
+  "prepared_utc": "2026-10-04T09:30:01.554177+00:00",
   "scope": "manuscripts_and_complete_verification_code_with_versioned_certificate_assets",
   "full_certificate_included": false,
   "files": [
@@ -112,8 +112,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 4654,
-      "sha256": "3e445487dad347eb2ec13e2e84b0236426b54b02fb7a4e78d1486edf19ab3d28"
+      "bytes": 4924,
+      "sha256": "96bdc6dab5282908f354d163061e4d4fde7991cb38950c80114beda8f64b96aa"
     },
     {
       "file": "README.txt",
@@ -221,6 +221,16 @@
       "sha256": "dae4bb2aec75fa1dab202a31a537b3b64813dcf9f4a41747ae1bffd2d0e26cb6"
     },
     {
+      "file": "tools/inventory_closure.py",
+      "bytes": 12186,
+      "sha256": "e087ca4cb45cd47b80077da382169cc836119146fa4d858bf28b9a840537a2aa"
+    },
+    {
+      "file": "tools/test_inventory.py",
+      "bytes": 2141,
+      "sha256": "afb899eea27a4aedba6177b9ba8716349d8fda79ebdbc20811bb70f165ba69e3"
+    },
+    {
       "file": "unpack-review.py",
       "bytes": 2691,
       "sha256": "e28bd8acfe71d483e1586fd1ddc56cab9bfdbb1c2ec9b8943e92ea3a0ce63b58"
@@ -236,8 +246,8 @@
       "sha256": "c32ab479f9e5d3a15393bcb5ac94a0b70e8d8817afb32022058abbee3827c1c1"
     }
   ],
-  "file_count": 46,
-  "payload_bytes": 6175951,
+  "file_count": 48,
+  "payload_bytes": 6190548,
   "full_certificate_release": "https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004",
   "data_license": "CC-BY-4.0",
   "code_license": "MIT"

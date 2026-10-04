@@ -71,6 +71,10 @@ The [rule census](statistics/rule-use-counts.csv) counts all 17 ordinary rules:
 reachable ordinary-node occurrences, not actual moves or distinct positions.
 [Census bindings](statistics/certificate-census.json) and the read-only
 [counting helper](tools/count_rules.py) make the statistics traceable.
+The [receipt-bound inventory source](tools/inventory_closure.py) and
+[streaming-parser tests](tools/test_inventory.py) are also supplied as
+provenance for the recorded census. These tools count bytes and stored rules;
+the mathematical checker decides strategy validity.
 
 ## Small examples
 
