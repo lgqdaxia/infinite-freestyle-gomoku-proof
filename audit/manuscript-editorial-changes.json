@@ -1,0 +1,62 @@
+[
+  {
+    "language": "en",
+    "source_sha256": "2f55205064bf34b603add2579f0f2370dd8bcd79717ddf4e32b356ec00a73ed0",
+    "replacements": [
+      {
+        "before": "$H$. We use $H=35$. A nonterminal explicit Black node stores a legal",
+        "after": "$H$. We use $H=35$. Every accepted node, including a terminal, must\nsatisfy $p=|B|+|W|\\le H$. A nonterminal explicit Black node stores a legal"
+      },
+      {
+        "before": "Every White move outside the reconstructed blockers and \\(\\mathcal A_W\\) loses within four moves from the parent.",
+        "after": "Assume \\(\\Win(W,B)=\\varnothing\\). Every White move outside the reconstructed blockers and \\(\\mathcal A_W\\) loses within four moves from the parent."
+      },
+      {
+        "before": "Every White reply outside those retained actions loses within four moves.",
+        "after": "Assume \\(\\Win(W,B)=\\varnothing\\). Every White reply outside those retained actions loses within four moves."
+      },
+      {
+        "before": "A branch whose Black block already makes five may be treated as having terminated early.",
+        "after": "A Black block making five can end play early; the frozen local checker conservatively retains subsequent closure checks."
+      },
+      {
+        "before": "SHA-256 values are supplied in \\code{archive-manifest.json}.",
+        "after": "SHA-256 values are supplied in \\code{archive-manifest.json}; compressed\nvolumes total 1.78 GB. The repository resource profile records observed\nlarge-leaf worker peaks of 0.407--0.525 GiB and recommends 90 GiB free\ndisk space for data, filesystem overhead and new receipts."
+      },
+      {
+        "before": "with the same explicit successor rules; their counts are reported separately.",
+        "after": "with the same explicit successor rules; their counts are reported separately.\nThe repository\\textquotesingle s \\code{audit/review-audit-index.md} maps\nlong-rule obligations to frozen source lines and named rejection tests."
+      }
+    ]
+  },
+  {
+    "language": "zh",
+    "source_sha256": "8863f9191f1e3167e13293ad97d044eae0908c84310dce937ac90ba96f70c364",
+    "replacements": [
+      {
+        "before": "我们采用 $H=35$。非终局的显式黑棋节点存储一个合法相对着法，",
+        "after": "我们采用 $H=35$。所有接受节点，包括终端节点，均须满足 $p=|B|+|W|\\le H$。非终局的显式黑棋节点存储一个合法相对着法，"
+      },
+      {
+        "before": "白方在重构的封堵点和 \\(\\mathcal A_W\\) 以外的每个着法，都在从父局面起四步内落败。",
+        "after": "设父局面非终局、轮到白方且 \\(\\Win(W,B)=\\varnothing\\)。白方在重构的封堵点和 \\(\\mathcal A_W\\) 以外的每个着法，都在从父局面起四步内落败。"
+      },
+      {
+        "before": "白方在这些保留动作以外的每个应手都在四步内落败。",
+        "after": "设父局面非终局、轮到白方且 \\(\\Win(W,B)=\\varnothing\\)。白方在这些保留动作以外的每个应手都在四步内落败。"
+      },
+      {
+        "before": "若某分支的黑方封堵已经形成五连，则可以将该分支视为提前终结。",
+        "after": "黑方封堵成五可以提前终结对局；冻结局部检查器仍保守地要求后续闭包检查。"
+      },
+      {
+        "before": "精确压缩分卷体积和SHA-256见 \\code{archive-manifest.json}。",
+        "after": "精确分卷体积和SHA-256见 \\code{archive-manifest.json}；压缩合计1.78 GB。仓库资源记录列出大型叶核验进程实测峰值0.407--0.525 GiB，并建议预留90 GiB磁盘用于数据、文件系统开销及新回执。"
+      },
+      {
+        "before": "\\texttt{verify\\_file}检查同样的显式规则，用量另计。",
+        "after": "\\texttt{verify\\_file}检查同样的显式规则，用量另计。\n仓库中的 \\code{audit/review-audit-index.md} 将长规则条件对应到冻结源码行及具名拒绝测试。"
+      }
+    ]
+  }
+]

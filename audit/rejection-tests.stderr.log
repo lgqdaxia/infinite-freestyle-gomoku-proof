@@ -1,0 +1,24 @@
+test_disabled_assertions_are_refused (__main__.CertificateRejectionTests.test_disabled_assertions_are_refused) ... ok
+test_fixture_controls_are_accepted (__main__.CertificateRejectionTests.test_fixture_controls_are_accepted) ... ok
+test_frozen_kernel_identities (__main__.CertificateRejectionTests.test_frozen_kernel_identities) ... ok
+test_future_remote_block_collides_with_local_suffix (__main__.CertificateRejectionTests.test_future_remote_block_collides_with_local_suffix) ... ok
+test_missing_black_outcome_is_rejected (__main__.CertificateRejectionTests.test_missing_black_outcome_is_rejected) ... ok
+test_missing_duplicate_and_wrong_opening_frame (__main__.CertificateRejectionTests.test_missing_duplicate_and_wrong_opening_frame) ... ok
+test_missing_retained_white_outcome_is_rejected (__main__.CertificateRejectionTests.test_missing_retained_white_outcome_is_rejected) ... ok
+test_occupied_black_move_is_rejected (__main__.CertificateRejectionTests.test_occupied_black_move_is_rejected) ... ok
+test_prepared_clock_and_missing_remote_blocker (__main__.CertificateRejectionTests.test_prepared_clock_and_missing_remote_blocker) ... ok
+test_prepared_mixed_remote_local_triple (__main__.CertificateRejectionTests.test_prepared_mixed_remote_local_triple) ... ok
+test_relative_black_action_preserves_all_gap_outcomes (__main__.CertificateRejectionTests.test_relative_black_action_preserves_all_gap_outcomes) ... ok
+test_remote_clock_counts_both_actual_moves (__main__.CertificateRejectionTests.test_remote_clock_counts_both_actual_moves) ... ok
+test_remote_unsealed_three_and_initial_four (__main__.CertificateRejectionTests.test_remote_unsealed_three_and_initial_four) ... ok
+test_terminal_is_subject_to_total_budget (__main__.CertificateRejectionTests.test_terminal_is_subject_to_total_budget) ... ok
+test_two_remote_frames_cannot_hide_mixed_triple (__main__.CertificateRejectionTests.test_two_remote_frames_cannot_hide_mixed_triple) ... ok
+test_white_double_counterfour_rejects_local_attack (__main__.CertificateRejectionTests.test_white_double_counterfour_rejects_local_attack) ... ok
+test_white_five_cannot_hide_behind_black_terminal (__main__.CertificateRejectionTests.test_white_five_cannot_hide_behind_black_terminal) ... ok
+test_white_immediate_win_and_malformed_pattern_reject (__main__.CertificateRejectionTests.test_white_immediate_win_and_malformed_pattern_reject) ... ok
+test_wrong_turn_type_anchor_and_duplicate_stone (__main__.CertificateRejectionTests.test_wrong_turn_type_anchor_and_duplicate_stone) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.438s
+
+OK

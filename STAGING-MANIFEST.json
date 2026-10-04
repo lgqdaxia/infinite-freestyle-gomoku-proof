@@ -1,7 +1,7 @@
 {
   "format": "gomoku-review-source-repository",
   "version": 1,
-  "prepared_utc": "2026-10-04T09:30:01.554177+00:00",
+  "prepared_utc": "2026-10-04T10:14:06.579506+00:00",
   "scope": "manuscripts_and_complete_verification_code_with_versioned_certificate_assets",
   "full_certificate_included": false,
   "files": [
@@ -14,6 +14,86 @@
       "file": ".gitignore",
       "bytes": 63,
       "sha256": "24c8549ffe8dbb01aaad98dd334923a081fea500413fc6e223a3fb298606b903"
+    },
+    {
+      "file": "audit/fixture-bindings.json",
+      "bytes": 1105,
+      "sha256": "0c66d5be0a55873d7debfc6d46a13ee22da79f219b223ccb7d5b3433f5569b19"
+    },
+    {
+      "file": "audit/fixtures/empty-cover-header.json",
+      "bytes": 10915,
+      "sha256": "fce6b466f2675cb5a76f40b1e979fb77bdfc4abc6971971510e1c60196adf85c"
+    },
+    {
+      "file": "audit/fixtures/gap-explicit.json",
+      "bytes": 1847,
+      "sha256": "40d0bef31fd931558f0bbad051e056f88a2fd55a5988e80da04156c072c679a0"
+    },
+    {
+      "file": "audit/fixtures/gap-fork.json",
+      "bytes": 29610,
+      "sha256": "f50baabee172b62d8660930a88970686972cbacaf3935f4d941fea921cafae0b"
+    },
+    {
+      "file": "audit/fixtures/prepared-recipe.json",
+      "bytes": 2648,
+      "sha256": "026ad76912c07b5c0a83c489ebba2c08ad79a545a8d3481f3d520dbeed25b7b8"
+    },
+    {
+      "file": "audit/fixtures/remote-interruption.json",
+      "bytes": 920,
+      "sha256": "6a9597127718706ca2d8b51433052dca4ac7c46f6d158683dcdb40ac4a85c8b5"
+    },
+    {
+      "file": "audit/manuscript-editorial-changes.json",
+      "bytes": 4098,
+      "sha256": "eb2a02304f0f025f1552dee6f092e02e39c25079b22b30d6365c8e6cc3f3739f"
+    },
+    {
+      "file": "audit/manuscript-qa.json",
+      "bytes": 3640,
+      "sha256": "57561471bc0b2b2576c84b292b25ecce8a77f2caf38a0db077ac03e205e3246c"
+    },
+    {
+      "file": "audit/recorded-four-worker-resource-probe.json",
+      "bytes": 3567,
+      "sha256": "75c25a9484f7b7de5c07e1b73ba314935e2f4715aa82b629f7a66dcde30c99ed"
+    },
+    {
+      "file": "audit/rejection-test-result.json",
+      "bytes": 1469,
+      "sha256": "c4788d406dbf8c05c2e7280665146d9f92591bce1c099912feeda609b2cd0e09"
+    },
+    {
+      "file": "audit/rejection-tests.stderr.log",
+      "bytes": 2649,
+      "sha256": "7eca73b190d8370c68a383fda6a5158def1d79333acf0ce0a9e3c6aefb6c355a"
+    },
+    {
+      "file": "audit/rejection-tests.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "audit/resource-profile.json",
+      "bytes": 1162,
+      "sha256": "34adc196871af0f65ff136b2a126b969e8f926da4c344dea35526a37c7d969c7"
+    },
+    {
+      "file": "audit/resource-profile.md",
+      "bytes": 2405,
+      "sha256": "9332d7c6e3c2ecd4dfa1137411667ea146f6e20f578863464839f9ee0059095d"
+    },
+    {
+      "file": "audit/review-audit-index.md",
+      "bytes": 7513,
+      "sha256": "e5a0889570e9aff3b3654272b0419dd3cc2a923a36ff3d29782dba73fc978f03"
+    },
+    {
+      "file": "audit/rule-obligation-index.json",
+      "bytes": 7014,
+      "sha256": "f1e54926c964ba412c52c3a1f447244816ebf088ff57a8ce63c4f2807518b4dd"
     },
     {
       "file": "build_archive.py",
@@ -86,24 +166,29 @@
       "sha256": "7c949f5f8d70e6307b586f8557c8b5c85ecd8183f26fc5eceb38e760371ac57b"
     },
     {
+      "file": "papers/response-to-second-review.txt",
+      "bytes": 3771,
+      "sha256": "748a90044c2113a350cf15b2f93b21193a2e6fa07caecedcbb894587dc4a555b"
+    },
+    {
       "file": "papers/revision-en.pdf",
-      "bytes": 192941,
-      "sha256": "775577924f94b151738400fa5e82f2f8396423d6c136f44d438407bcde7bdd82"
+      "bytes": 194835,
+      "sha256": "4a1f217677f7007c7a01977184b289fd7a26c1190768b7c09db6da0985830849"
     },
     {
       "file": "papers/revision-en.tex",
-      "bytes": 89610,
-      "sha256": "2940c6952f98b6740d06c7ace0e1fbf859cc7bb96c874155a1be56242f986393"
+      "bytes": 90142,
+      "sha256": "2f55205064bf34b603add2579f0f2370dd8bcd79717ddf4e32b356ec00a73ed0"
     },
     {
       "file": "papers/revision-zh.pdf",
-      "bytes": 473352,
-      "sha256": "5427a26e8710cc4d6900d90ccc2e5d52bf34b730ec627d82ad7bb9a420d37cc8"
+      "bytes": 475237,
+      "sha256": "11df5695a2846501748e0ddcb831b48bb242cc96e5037c9bf58aa9360b4a2925"
     },
     {
       "file": "papers/revision-zh.tex",
-      "bytes": 85558,
-      "sha256": "17933aea867a3046aa6b6e907de4b1dac6d2af0ddd28438ec02961461cdf5eea"
+      "bytes": 86065,
+      "sha256": "8863f9191f1e3167e13293ad97d044eae0908c84310dce937ac90ba96f70c364"
     },
     {
       "file": "papers/verify-command.txt",
@@ -112,8 +197,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 4924,
-      "sha256": "96bdc6dab5282908f354d163061e4d4fde7991cb38950c80114beda8f64b96aa"
+      "bytes": 6265,
+      "sha256": "6f275915304b8d68b8c386b0b2953dc2e6d46135b67301c412d2412ff15676fb"
     },
     {
       "file": "README.txt",
@@ -206,6 +291,11 @@
       "sha256": "fd5d26c42cbe0399a6a2460493149e5a3101dde5c16a243965d97461670cd2eb"
     },
     {
+      "file": "test_certificate_rejection.py",
+      "bytes": 9156,
+      "sha256": "2fb587cee70a559ea9ae3f790bb5a35314b5a8a2ecff73a161e7ed0ee96505a0"
+    },
+    {
       "file": "test_release_tools.py",
       "bytes": 3266,
       "sha256": "9989ee2a7144b27f0ae90347e286c76c5bd052054f07e1ec4d7a31e82361526c"
@@ -246,9 +336,12 @@
       "sha256": "c32ab479f9e5d3a15393bcb5ac94a0b70e8d8817afb32022058abbee3827c1c1"
     }
   ],
-  "file_count": 48,
-  "payload_bytes": 6190548,
+  "file_count": 66,
+  "payload_bytes": 6290196,
   "full_certificate_release": "https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004",
   "data_license": "CC-BY-4.0",
-  "code_license": "MIT"
+  "code_license": "MIT",
+  "revision": "review-v2-20261004",
+  "paper_release": "https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v2-20261004",
+  "preserved_certificate_release": "https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004"
 }

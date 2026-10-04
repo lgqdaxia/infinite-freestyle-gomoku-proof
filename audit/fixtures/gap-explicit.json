@@ -1,0 +1,118 @@
+{
+  "format": "freestyle-gomoku-infinite-dynamic-gap",
+  "version": 1,
+  "rules": {
+    "target": 5,
+    "overline_wins": true,
+    "forbidden_moves": false
+  },
+  "max_total_plies": 11,
+  "root": "root",
+  "nodes": [
+    {
+      "id": "root",
+      "kind": "black",
+      "position": {
+        "black": [
+          [
+            5,
+            5
+          ],
+          [
+            12,
+            6
+          ],
+          [
+            12,
+            7
+          ],
+          [
+            12,
+            8
+          ]
+        ],
+        "white": [
+          [
+            10,
+            5
+          ],
+          [
+            11,
+            5
+          ],
+          [
+            13,
+            5
+          ],
+          [
+            14,
+            5
+          ]
+        ],
+        "to_move": "black"
+      },
+      "action": {
+        "reference": [
+          11,
+          5
+        ],
+        "offset": [
+          1,
+          0
+        ]
+      },
+      "edges": [
+        {
+          "child": "open-four"
+        }
+      ]
+    },
+    {
+      "id": "open-four",
+      "kind": "double_open_four",
+      "position": {
+        "black": [
+          [
+            5,
+            5
+          ],
+          [
+            12,
+            5
+          ],
+          [
+            12,
+            6
+          ],
+          [
+            12,
+            7
+          ],
+          [
+            12,
+            8
+          ]
+        ],
+        "white": [
+          [
+            10,
+            5
+          ],
+          [
+            11,
+            5
+          ],
+          [
+            13,
+            5
+          ],
+          [
+            14,
+            5
+          ]
+        ],
+        "to_move": "white"
+      }
+    }
+  ]
+}

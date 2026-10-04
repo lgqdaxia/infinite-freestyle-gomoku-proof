@@ -376,7 +376,8 @@ account for defensive interruptions.
 An ordinary certificate is a finite directed graph whose nodes record a
 normalized colored position, the player to move, and a rule kind. Its
 header specifies the freestyle rules and an integer total-placement bound
-$H$. We use $H=35$. A nonterminal explicit Black node stores a legal
+$H$. We use $H=35$. Every accepted node, including a terminal, must
+satisfy $p=|B|+|W|\le H$. A nonterminal explicit Black node stores a legal
 relative action and an edge to every state of
 $\Succ_B(Q,r,\delta)$. A nonterminal explicit White node stores an edge
 to every state of $\Succ_W(Q)$. Duplicate child positions are rejected,
@@ -555,7 +556,7 @@ A supporting triple consists of three cells of a five-cell segment other than \(
 \end{proof}
 
 \begin{proposition}[symbolic fork]\label{mac:fork}
-Every White move outside the reconstructed blockers and \(\mathcal A_W\) loses within four moves from the parent.
+Assume \(\Win(W,B)=\varnothing\). Every White move outside the reconstructed blockers and \(\mathcal A_W\) loses within four moves from the parent.
 
 \end{proposition}
 \begin{proof}
@@ -567,7 +568,7 @@ By Lemma~\ref{mac:counter-actions} the reply neither wins immediately nor create
 An open-four preparation template consists of a four-cell segment with exactly three Black stones and one empty setup \(s\), and with both adjacent endpoints \(\ell,r\) empty. Its \textbf{obstruction set} is \(T=\{s,\ell,r\}\). A White reply disables this particular preparation only by occupying \(T\), because its other required cells already contain Black stones. For a nonempty selected family of templates in a common rigid frame, let \(K=\bigcap T\). Retain \(\mathcal A_W\) and the anchored White moves at all points of \(K\).
 
 \begin{proposition}[a selected template family]\label{mac:template-family}
-Every White reply outside those retained actions loses within four moves.
+Assume \(\Win(W,B)=\varnothing\). Every White reply outside those retained actions loses within four moves.
 
 \end{proposition}
 \begin{proof}
@@ -636,7 +637,7 @@ The finite local continuation maintains a state \((i,A,D,u)\), with step index \
 \begin{enumerate}
 \item Initially \(A,D\) are the old local stones and \(u=0\). At every step \(D\) has no five, the required support lies in \(A\), and the required empty set avoids \(A\cup D\). Add \(g\) to \(A\) and increase \(u\) by one. If Black has five, terminate this branch. Otherwise require \(\Win(D,A)=\varnothing\).
 \item A \texttt{straight\_four} terminates this branch with total bound \(u+2\). For the other nonterminal types form a closure of all counterfour responses described below, starting with the state just after the gain.
-\item At every White-decision closure state \((A,D,v)\), require that $D$ has no five and \(\Win(D,A)=\varnothing\). For a three-stone operator, enumerate every empty point \(q\) of every five-cell segment disjoint from \(A\) with at least three White stones in \(D\). Put \(D'=D\cup\{q\}\). The prestate conditions imply that $D'$ has no five, since otherwise $q$ was a completion of $D$. If \(\Win(D',A)\) is nonempty, require it to be the singleton \(\{t\}\). Require \(q,t\) to avoid every gain, required support, defense point, and required empty point in the current and later operators. Add the full closure successor \((A\cup\{t\},D',v+2)\). No such response is ignored. A branch whose Black block already makes five may be treated as having terminated early.
+\item At every White-decision closure state \((A,D,v)\), require that $D$ has no five and \(\Win(D,A)=\varnothing\). For a three-stone operator, enumerate every empty point \(q\) of every five-cell segment disjoint from \(A\) with at least three White stones in \(D\). Put \(D'=D\cup\{q\}\). The prestate conditions imply that $D'$ has no five, since otherwise $q$ was a completion of $D$. If \(\Win(D',A)\) is nonempty, require it to be the singleton \(\{t\}\). Require \(q,t\) to avoid every gain, required support, defense point, and required empty point in the current and later operators. Add the full closure successor \((A\cup\{t\},D',v+2)\). No such response is ignored. A Black block making five can end play early; the frozen local checker conservatively retains subsequent closure checks.
 \item At every closure state check \(K\cap A=\varnothing\) and that \(D\cup K\) has no five. Append the next step with virtual set \(D\cup K\) and count \(v+1\). Also include the quick-finish bound \(v+4\) for a three-stone type, or \(v+2\) for \texttt{four}.
 \item Every branch has a terminal gain or straight four before the sequence runs out. All closure states and all bounds are finite and within the stated local budget. A resource limit, missing step, extra completion point, collision, or excess budget invalidates the witness; a closure may not be truncated and then certified.
 
@@ -1014,7 +1015,10 @@ The archive preserves the original certificate bytes and relative paths,
 so the cover and checker identities in Section~\ref{sec:compute} remain valid.
 Selected JSON dependencies total 48,588,463,288 bytes (45.25 GiB), excluding
 metadata and verification receipts. Exact compressed volume sizes and
-SHA-256 values are supplied in \code{archive-manifest.json}.
+SHA-256 values are supplied in \code{archive-manifest.json}; compressed
+volumes total 1.78 GB. The repository resource profile records observed
+large-leaf worker peaks of 0.407--0.525 GiB and recommends 90 GiB free
+disk space for data, filesystem overhead and new receipts.
 
 Download all numbered volumes and the release's extraction entry, which
 checks their hashes and reconstructs the directory tree. Verification uses
@@ -1154,6 +1158,8 @@ placement count are checked, and all retained actions require every normalized
 successor. The template variants retain the complete White counterfour set.
 Modular Black/White headers use \texttt{reference\_gap\_bundle\_verifier.}\allowbreak\texttt{verify\_file}
 with the same explicit successor rules; their counts are reported separately.
+The repository\textquotesingle s \code{audit/review-audit-index.md} maps
+long-rule obligations to frozen source lines and named rejection tests.
 
 
 \par\endgroup

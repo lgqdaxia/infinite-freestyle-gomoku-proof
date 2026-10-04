@@ -1,0 +1,27 @@
+{
+  "probe_sha256": "75c25a9484f7b7de5c07e1b73ba314935e2f4715aa82b629f7a66dcde30c99ed",
+  "probe_scope": "Actual first four leaf jobs in a fresh four-worker pool; not an opening or empty cover",
+  "source_metric": "Windows PeakWorkingSetSize",
+  "worker_peak_bytes": [
+    540823552,
+    436477952,
+    563286016,
+    510001152
+  ],
+  "worker_peak_gib": [
+    0.5036811828613281,
+    0.40650177001953125,
+    0.5246009826660156,
+    0.4749755859375
+  ],
+  "sum_of_separate_worker_peaks_bytes": 2050588672,
+  "sum_scope": "Sum of the four per-process peaks in this leaf probe; not a simultaneous measured peak or a full-cover RAM bound.",
+  "selected_dependency_json_bytes": 48588463288,
+  "download_bytes": 1776528706,
+  "archive_uncompressed_payload_bytes": 48995985879,
+  "archive_entries": 1482929,
+  "recommended_free_disk_gib": 90,
+  "recommendation_scope": "Planning allowance for extracted files, filesystem rounding/metadata, downloaded volumes and new receipts; not a measured allocation.",
+  "recorded_machine_ram_gib": 31.7,
+  "full_certificate_release": "https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v1-20261004"
+}

@@ -1,0 +1,68 @@
+RESPONSE TO THE SECOND INDEPENDENT REVIEW
+Gaoqiang Liu — 4 October 2026
+
+We thank the reviewer for separating the mathematical arguments, frozen-source
+inspection and acceptance of the full computational instance. We have made
+small changes to improve auditability. The revised English paper remains
+25 pages and the Chinese reading version 22 pages. No mathematical checker,
+certificate byte, opening cover or rule census has changed.
+
+1. Coordinate abstraction and first-reply coverage.
+The arguments and universal Black-outcome requirement are retained. The
+companion rejection suite checks both distinct outcomes of a relative Black
+action across a saturated gap, missing Black/White edges, and defective
+first-reply coverage or frame assignments.
+
+2. Short-rule hypotheses.
+Propositions 5.9 and 5.10 now directly state Win(W,B) is empty. The common
+nonterminal, White-to-move context remains stated at the start of Section 5.2.
+
+3. Long-rule auditability.
+Appendix E points to audit/review-audit-index.md. Its machine-readable index
+gives 15 obligations, frozen-source hashes, functions, exact line ranges and
+guard fragments: suffix exclusion, full local and remote closures, recorded
+states, activity separation, statewise mixed-line maxima and actual-placement
+clocks. Named related tests are indexed; no claim is made that a small suite
+certifies every computational instance.
+
+4. Two-component example.
+Appendix F is retained. The reported independent counts (L=13, 33 activity
+points, 28 local states, one interruption and five states per remote graph,
+17 further placements and 35 total) agree with the supplied example.
+This example is not substituted for opening coverage.
+
+5. Complete-instance acceptance.
+The public review-v1-20261004 release contains the complete original-byte
+dependency closure, frozen checkers, manifests, recorded successful checks
+and a fresh-check entry with explicit success and failure criteria. The
+revised manuscript and audit additions form a separate versioned supplement;
+the original release is preserved. An external acceptance run can start with
+that public package, without search engines or historical receipts as premises.
+We agree that the reviewer's static inspection and small example do not
+constitute the reviewer's acceptance of the full computational instance.
+
+6. Related work and priority.
+The current distinctions and cautious priority wording are retained.
+No unsupported claim of global priority has been added.
+
+7. Additional small edits.
+Section 4 now explicitly requires p <= H at every accepted node, including
+terminals. Section 6.1 clarifies that a winning Black counterfour block can
+terminate real play while the frozen local checker may conservatively require
+subsequent closure checks. The remote-graph checker has an explicit early
+Black-win exit; the companion index identifies both code paths.
+
+The self-contained test_certificate_rejection.py imports only frozen
+independent kernels and standard-library modules. All 19 named tests pass,
+including terminal budgets, immediate White wins, mixed threats, missing
+responses, malformed operators, root/turn types and disabled assertions.
+
+Section 10 gives the exact download size and points to resource-profile.json:
+recorded large-leaf worker peak working sets were 0.407–0.525 GiB; these are
+local measurements, not a full-run RAM bound. A 90 GiB disk allowance is a
+planning recommendation covering the many files and additional receipts.
+
+Versioned releases, commits and hashes identify the current corpus and revised
+paper. The existing Zenodo DOI identifies the original paper only. The resource
+companion describes how a combined preservation deposit can be linked without
+misidentifying the old DOI as a DOI for the full certificate.

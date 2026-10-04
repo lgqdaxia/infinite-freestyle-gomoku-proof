@@ -1,0 +1,20 @@
+{
+  "status": "PASSED_FROZEN_KERNEL_REJECTION_REGRESSIONS",
+  "actual_exit_code": 0,
+  "tests": 19,
+  "started_utc": "2026-10-04T10:14:05.877723+00:00",
+  "test_sha256": "2fb587cee70a559ea9ae3f790bb5a35314b5a8a2ecff73a161e7ed0ee96505a0",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "7eca73b190d8370c68a383fda6a5158def1d79333acf0ce0a9e3c6aefb6c355a",
+  "kernel_identities": {
+    "scripts/reference_gap_opening_cover.py": "035b313fae8fb616d81717a85d2d114c5299d841e90b237ee54653fb41eae5d9",
+    "scripts/reference_gap_bundle_batched.py": "a449c69156dbff34a2b1776ff930897fcda6940e684fe5f96c8d6a84a3abf244",
+    "scripts/reference_gap_bundle_parallel.py": "d6ade4e2952a71adcfbd86dc255a942eb2b59a70c5df00672e9e80280568c4b5",
+    "scripts/reference_gap_bundle_verifier.py": "4f05d9e26dc11a42f34f1bcee7d2b210f1cdd2638bab0788a6571fc78f8cad2a",
+    "scripts/reference_gap_verifier.py": "0292e59da9030a952693972dfc36f37b8f49357d8843cd69bfc98a7a4df88f15",
+    "scripts/reference_infinite_threat_witness.py": "10a0f6ab821baa50a72eb1c3f7652fa463dfe83c79e5b189fd2d5a302aab6275",
+    "scripts/reference_prepared_remote_sequence.py": "331db432565a8080b292801df8dad329fff238d91ca0cfed6f23b86929234af6",
+    "scripts/reference_remote_interruption_sequence.py": "3f1e10525c09970ea5c133c6af6e8dde9451de46d1a9044bb04f08ba26426540"
+  },
+  "scope": "Self-contained small acceptance/rejection fixtures; no full-instance replay."
+}

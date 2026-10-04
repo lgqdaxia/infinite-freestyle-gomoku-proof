@@ -1,0 +1,69 @@
+{
+  "status": "CHECKED_REVIEW_MANUSCRIPTS_AND_FROZEN_KERNELS",
+  "utc": "2026-10-04T10:14:05.775637+00:00",
+  "manuscripts": [
+    {
+      "source": "C:\\Users\\lgqda\\Documents\\ChatGPT\\\u5927\u4e94\u5b50\u68cb\u731c\u60f3\\research\\full-review-release-20261004\\paper-for-review-en.tex",
+      "source_sha256": "2f55205064bf34b603add2579f0f2370dd8bcd79717ddf4e32b356ec00a73ed0",
+      "source_unchanged": true,
+      "actual_exit_code": 0,
+      "seconds": 2.6252233999985037,
+      "compiler": "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.930.3930.0_x64__2p2nqsd0c76g0\\app\\resources\\tectonic\\tectonic.exe",
+      "compiler_sha256": "2d9d8a29f3396b7428389d14ba5acebfe5444733e12a62d53903a710fd51b8fb",
+      "isolated_output_dir": "C:\\Users\\lgqda\\Documents\\ChatGPT\\\u5927\u4e94\u5b50\u68cb\u731c\u60f3\\research\\full-review-release-20261004\\compilation\\1791108609587520400",
+      "builtin_attempt": {
+        "kind": "compile-failed",
+        "diagnostic": "Unable to find standard directories for platform"
+      },
+      "fallback": "Existing app-bundled compiler, no new installation",
+      "issues": [],
+      "recorded_utc": "2026-10-04T10:10:12.266168+00:00",
+      "pdf": "C:\\Users\\lgqda\\Documents\\ChatGPT\\\u5927\u4e94\u5b50\u68cb\u731c\u60f3\\research\\full-review-release-20261004\\paper-for-review-en.pdf",
+      "pdf_sha256": "4a1f217677f7007c7a01977184b289fd7a26c1190768b7c09db6da0985830849",
+      "pdf_bytes": 194835,
+      "pages": 25,
+      "command_ascii_copy": true,
+      "unresolved_references": false
+    },
+    {
+      "source": "C:\\Users\\lgqda\\Documents\\ChatGPT\\\u5927\u4e94\u5b50\u68cb\u731c\u60f3\\research\\full-review-release-20261004\\paper-for-review-zh.tex",
+      "source_sha256": "8863f9191f1e3167e13293ad97d044eae0908c84310dce937ac90ba96f70c364",
+      "source_unchanged": true,
+      "actual_exit_code": 0,
+      "seconds": 5.70294229999854,
+      "compiler": "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.930.3930.0_x64__2p2nqsd0c76g0\\app\\resources\\tectonic\\tectonic.exe",
+      "compiler_sha256": "2d9d8a29f3396b7428389d14ba5acebfe5444733e12a62d53903a710fd51b8fb",
+      "isolated_output_dir": "C:\\Users\\lgqda\\Documents\\ChatGPT\\\u5927\u4e94\u5b50\u68cb\u731c\u60f3\\research\\full-review-release-20261004\\compilation\\1791108609587520400",
+      "builtin_attempt": {
+        "kind": "compile-failed",
+        "diagnostic": "Unable to find standard directories for platform"
+      },
+      "fallback": "Existing app-bundled compiler, no new installation",
+      "issues": [],
+      "recorded_utc": "2026-10-04T10:10:18.436067+00:00",
+      "pdf": "C:\\Users\\lgqda\\Documents\\ChatGPT\\\u5927\u4e94\u5b50\u68cb\u731c\u60f3\\research\\full-review-release-20261004\\paper-for-review-zh.pdf",
+      "pdf_sha256": "11df5695a2846501748e0ddcb831b48bb242cc96e5037c9bf58aa9360b4a2925",
+      "pdf_bytes": 475237,
+      "pages": 22,
+      "command_ascii_copy": true,
+      "unresolved_references": false
+    }
+  ],
+  "mathematical_sections_2_through_7_only_enumerated_editorial_clarifications": true,
+  "enumerated_edit_record_sha256": "eb2a02304f0f025f1552dee6f092e02e39c25079b22b30d6365c8e6cc3f3739f",
+  "original_preprint_bytes_unchanged": true,
+  "frozen_mathematical_checker_count": 8,
+  "all_pages_rendered": true,
+  "all_9_contact_sheets_visually_inspected": true,
+  "detailed_inspection": [
+    "en 10",
+    "en 12",
+    "en 21",
+    "en 23",
+    "zh 9",
+    "zh 11",
+    "zh 19",
+    "zh 21"
+  ],
+  "visual_result": "No clipping, overflow, missing glyphs or unresolved references observed"
+}

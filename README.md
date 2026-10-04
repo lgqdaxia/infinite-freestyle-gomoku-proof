@@ -12,7 +12,10 @@ normalized first replies; every subsequent White response is checked.
 
 - [English review manuscript](papers/revision-en.pdf), [TeX](papers/revision-en.tex): 25 pages.
 - [Chinese reading version](papers/revision-zh.pdf), [TeX](papers/revision-zh.tex): 22 pages.
-- [Response to the review](papers/response-to-review.txt).
+- [Response to the first review](papers/response-to-review.txt).
+- [Response to the second review](papers/response-to-second-review.txt).
+- Revised-paper supplement: [review-v2-20261004](https://github.com/lgqdaxia/infinite-freestyle-gomoku-proof/releases/tag/review-v2-20261004).
+  Its complete certificate remains the unchanged v1 data release linked below.
 - [Original dated preprint v1](papers/preprint-v1-en.pdf),
   DOI [10.5281/zenodo.23126820](https://doi.org/10.5281/zenodo.23126820).
 
@@ -52,7 +55,10 @@ with status **`VERIFIED_EMPTY_BOARD_REVIEW_RELEASE`**, scope `empty_board`,
 Missing dependencies, changed hashes, nonzero exits or unfinished coverage
 are not accepted. The recorded mathematical run took 27,837.450 seconds
 with four workers on an i7-12700H, 31.7 GiB RAM, Windows 11 machine.
-Allow storage for extracted data, downloaded volumes and new verification receipts.
+Allow **90 GiB free disk** as a planning margin for the extracted files,
+filesystem overhead, downloaded volumes and new verification receipts.
+The [resource profile](audit/resource-profile.md) supplies exact sizes and
+recorded large-leaf worker peak working sets (0.407–0.525 GiB), with measurement scope.
 
 ## Verification code and rule census
 
@@ -75,6 +81,24 @@ The [receipt-bound inventory source](tools/inventory_closure.py) and
 [streaming-parser tests](tools/test_inventory.py) are also supplied as
 provenance for the recorded census. These tools count bytes and stored rules;
 the mathematical checker decides strategy validity.
+
+## Audit companion and rejection regressions
+
+The [review audit index](audit/review-audit-index.md) maps 15 long-rule and
+coverage obligations to exact functions, frozen-source lines and related
+regressions. [Machine-readable index](audit/rule-obligation-index.json).
+All 19 named small-fixture tests pass:
+
+```text
+python -B test_certificate_rejection.py
+```
+
+These tests import only frozen kernels and standard-library modules. The
+[test receipt](audit/rejection-test-result.json) binds their actual zero exit,
+source and output hashes. Complete-certificate acceptance still uses the
+full-review entry above. The original paper DOI identifies its original
+snapshot; release tags, commits and hashes distinguish the revised paper
+and complete certificate. [Version and resource notes](audit/resource-profile.md).
 
 ## Small examples
 
